@@ -3,24 +3,29 @@
 
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs;
-    flake-utils.url = github:numtide/flake-utils;
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem ( system:
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = false;
-        };
+  outputs = { self, nixpkgs }:
+    let
+      name = "aoc21";
+      pkgs = import nixpkgs { system = "x86_64-linux"; };
+    in {
+      devShell.x86_64-linux = pkgs.mkShell {
+        buildInputs = with pkgs; [ nim nimlsp ];
+      };
 
-      in {
-        devShell = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            nim
-            nimlsp
-          ];
-        };
-      }
-    );
+      defaultPackage.x86_64-linux = pkgs.stdenv.mkDerivation {
+        inherit name;
+        src = self;
+        buildInputs = with pkgs; [ nim ];
+        buildPhase = ''
+          export HOME=$TEMPDIR
+          ${pkgs.nim}/bin/nimble build -d:release
+        '';
+        installPhase = ''
+          mkdir -p $out/bin
+          mv ${name} $out/bin
+        '';
+      };
+    };
 }
