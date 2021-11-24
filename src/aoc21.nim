@@ -1,7 +1,18 @@
 # This is just an example to get you started. A typical hybrid package
 # uses this file as the main entry point of the application.
 
-import aoc21pkg/submodule
+import std/parseopt
+import std/strutils
+import std/strformat
+
+import aoc21pkg/cli
+import aoc21pkg/day01
 
 when isMainModule:
-  echo(getWelcomeMessage())
+  cli.write_header()
+  let input = cli.get_problem_input()
+  echo(&"Launching day {input.day} with {input.file}")
+
+  case input.day
+  of 1: day01.solve(input.file)
+  else: echo(&"Day {input.day} has not yet been implemented")
