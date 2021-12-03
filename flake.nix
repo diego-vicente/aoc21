@@ -11,7 +11,7 @@
       pkgs = import nixpkgs { system = "x86_64-linux"; };
     in {
       devShell.x86_64-linux = pkgs.mkShell {
-        buildInputs = with pkgs; [ nim nimlsp ];
+        buildInputs = with pkgs; [ nim nimlsp hyperfine ];
       };
 
       defaultPackage.x86_64-linux = pkgs.stdenv.mkDerivation {
