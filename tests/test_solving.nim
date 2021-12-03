@@ -7,6 +7,9 @@
 
 import unittest
 
-import aoc21pkg/submodule
-test "correct welcome":
-  check getWelcomeMessage() == "Hello, World!"
+import aoc21pkg/day01
+
+test "day 01 using test input":
+  let input = day01.read_input("./assets/test/input_01.txt")
+  check day01.solve_first_part(input) == 7
+  check day01.solve_second_part(input) == 5
