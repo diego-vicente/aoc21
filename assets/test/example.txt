@@ -1,2 +1,0 @@
-This is just an example file.
-It has two lines.
