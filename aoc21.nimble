@@ -12,3 +12,4 @@ bin           = @["aoc21"]
 # Dependencies
 
 requires "nim >= 1.6.0"
+requires "fusion == 1.1"
