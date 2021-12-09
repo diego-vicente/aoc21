@@ -6,7 +6,7 @@ import std/strutils
 import std/strformat
 
 import aoc21pkg/cli
-import aoc21pkg/[day01, day02, day03, day04, day05]
+import aoc21pkg/[day01, day02, day03, day04, day05, day06]
 
 when isMainModule:
   cli.write_header()
@@ -19,4 +19,5 @@ when isMainModule:
   of 3: day03.solve(input.file)
   of 4: day04.solve(input.file)
   of 5: day05.solve(input.file)
+  of 6: day06.solve(input.file)
   else: echo(&"Day {input.day} has not yet been implemented")
