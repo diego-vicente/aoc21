@@ -7,7 +7,7 @@
 
 import unittest
 
-import aoc21pkg/[day01, day02, day03, day04, day05, day06]
+import aoc21pkg/[day01, day02, day03, day04, day05, day06, day07]
 
 test "day 01 using test input":
   let input = day01.read_input("./assets/test/input_01.txt")
@@ -38,3 +38,8 @@ test "day 06 using test input":
   let input = day06.read_input("./assets/test/input_06.txt")
   check day06.solve_first_part(input) == 5934
   check day06.solve_second_part(input) == 26984457539
+
+test "day 07 using test input":
+  let input = day07.read_input("./assets/test/input_07.txt")
+  check day07.solve_first_part(input) == 37
+  check day07.solve_second_part(input) == 170
