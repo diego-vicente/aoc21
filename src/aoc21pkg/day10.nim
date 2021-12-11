@@ -1,4 +1,4 @@
-import std/[sugar, algorithm, deques, math, strutils, strformat, sequtils]
+import std/[sugar, algorithm, deques, math, strutils, strformat]
 
 type
   TokenType = enum Parenthesis, SquareBracket, CurlyBracket, AngleBracket
@@ -65,8 +65,8 @@ proc solve_first_part*(input: seq[string]): int =
   ## Solve the first part counting the corrupted sequences score.
   let scores = collect(new_seq):
     for chunk in input:
-      let (result, info) = chunk.check_balance()
-      if result == Unexpected:
+      let (status, info) = chunk.check_balance()
+      if status == Unexpected:
         case info
         of ")": 3
         of "]": 57
@@ -80,8 +80,8 @@ proc solve_second_part*(input: seq[string]): int =
   ## Solve the first part counting the incomplete sequences score.
   let scores = collect(new_seq):
     for chunk in input:
-      let (result, info) = chunk.check_balance()
-      if result == Expected:
+      let (status, info) = chunk.check_balance()
+      if status == Expected:
         var
           score = 0
           token_score = 0

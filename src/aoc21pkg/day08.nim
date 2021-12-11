@@ -1,4 +1,4 @@
-import std/[sugar, algorithm, math, sets, strutils, strformat, sequtils, tables]
+import std/[sugar, math, sets, strutils, strformat, sequtils, tables]
 
 
 type

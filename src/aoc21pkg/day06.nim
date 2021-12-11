@@ -1,4 +1,4 @@
-import std/[sugar, math, strutils, strformat, sequtils, tables]
+import std/[math, strutils, strformat, sequtils, tables]
 
 
 proc read_input*(path: string): seq[int] =
