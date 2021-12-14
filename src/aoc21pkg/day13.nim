@@ -1,4 +1,4 @@
-import std/[sugar, strutils, strformat, sequtils, sets, tables]
+import std/[sugar, strutils, strformat, sequtils, sets]
 
 type
   Point = tuple
