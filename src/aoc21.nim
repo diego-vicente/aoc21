@@ -6,7 +6,8 @@ import std/strformat
 import aoc21pkg/cli
 import aoc21pkg/[
   day01, day02, day03, day04, day05, day06, day07, day08, day09, day10,
-  day11, day12, day13, day14, day15, day16, day17, day20
+  day11, day12, day13, day14, day15, day16, day17, day20,
+  day21
 ]
 
 when isMainModule:
@@ -34,4 +35,5 @@ when isMainModule:
   of 17: day17.solve(input.file)
   # of 18: day18.solve(input.file)
   of 20: day20.solve(input.file)
+  of 21: day21.solve(input.file)
   else: echo(&"Day {input.day} has not yet been implemented")
