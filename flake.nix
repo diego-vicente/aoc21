@@ -17,10 +17,11 @@
       defaultPackage.x86_64-linux = pkgs.stdenv.mkDerivation {
         inherit name;
         src = self;
-        buildInputs = with pkgs; [ nim ];
+        buildInputs = with pkgs; [ nim git ];
         buildPhase = ''
           export HOME=$TEMPDIR
-          ${pkgs.nim}/bin/nimble build -d:release
+          cp -r ${./nimble} $HOME/.nimble
+          ${pkgs.nim}/bin/nimble build -y -d:release --verbose
         '';
         installPhase = ''
           mkdir -p $out/bin
